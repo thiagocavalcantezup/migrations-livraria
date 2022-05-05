@@ -1,0 +1,15 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-MigrationsLivrariaApplication<migrations-livraria>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "console": "internalConsole",
+      "mainClass": "br.com.zup.handora.migrationslivraria.MigrationsLivrariaApplication",
+      "projectName": "migrations-livraria",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
