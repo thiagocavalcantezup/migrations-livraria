@@ -4,5 +4,5 @@ CREATE TABLE autores (
   email VARCHAR(120) NOT NULL,
   data_nascimento TIMESTAMP NOT NULL,
   biografia VARCHAR(300) NOT NULL,
-  data_criacao TIMESTAMP NOT NULL
+  criado_em TIMESTAMP NOT NULL
 )

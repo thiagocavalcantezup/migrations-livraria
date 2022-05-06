@@ -31,7 +31,7 @@ public class Autor {
     private String biografia;
 
     @Column(nullable = false)
-    private LocalDateTime dataCriacao = LocalDateTime.now();
+    private LocalDateTime criadoEm = LocalDateTime.now();
 
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
