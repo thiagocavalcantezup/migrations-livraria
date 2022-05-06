@@ -1,7 +1,7 @@
 
 spring:
   datasource:
-    url: jdbc:h2:file:./mydb
+    url: jdbc:h2:mem:mytestdb
     username: sa
     password: password
     driverClassName: org.h2.Driver
@@ -15,10 +15,6 @@ spring:
       hibernate:
         '[format_sql]': true
         ddl-auto: none
-  flyway:
-    url: jdbc:h2:file:./mydb
-    user: sa
-    password: password
 
 server:
   servlet:
