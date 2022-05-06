@@ -50,14 +50,13 @@ public class Livro {
     public Livro() {}
 
     public Livro(String titulo, BigDecimal valor, Integer numeroPaginas, String isbn,
-                 LocalDate dataPublicacao, Autor autor, LocalDateTime criadoEm) {
+                 LocalDate dataPublicacao, Autor autor) {
         this.titulo = titulo;
         this.valor = valor;
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
         this.dataPublicacao = dataPublicacao;
         this.autor = autor;
-        this.criadoEm = criadoEm;
     }
 
     public Long getId() {
