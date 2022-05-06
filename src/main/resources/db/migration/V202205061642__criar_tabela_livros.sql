@@ -5,5 +5,6 @@ CREATE TABLE livros (
   numero_paginas INTEGER NOT NULL,
   isbn VARCHAR(20) NOT NULL,
   data_publicacao TIMESTAMP NOT NULL,
+  autor_id BIGINT,
   criado_em TIMESTAMP NOT NULL
 )
