@@ -1,0 +1,9 @@
+CREATE TABLE livros (
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(255) NOT NULL,
+  valor DECIMAL(19, 2) NOT NULL,
+  numero_paginas INTEGER NOT NULL,
+  isbn VARCHAR(20) NOT NULL,
+  data_publicacao TIMESTAMP NOT NULL,
+  criado_em TIMESTAMP NOT NULL
+)
