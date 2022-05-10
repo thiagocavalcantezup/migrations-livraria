@@ -3,6 +3,8 @@ package br.com.zup.handora.migrationslivraria.livro;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
@@ -44,18 +46,24 @@ public class LivroRequest {
     @NotNull
     private Long autorId;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private StatusLivro status;
+
     public LivroRequest() {}
 
     public LivroRequest(@NotBlank String titulo, @NotNull @PositiveOrZero BigDecimal valor,
                         @NotNull @Positive Integer numeroPaginas,
                         @NotBlank @ISBN(type = Type.ANY) String isbn,
-                        @NotNull @PastOrPresent LocalDate dataPublicacao, @NotNull Long autorId) {
+                        @NotNull @PastOrPresent LocalDate dataPublicacao, @NotNull Long autorId,
+                        @NotNull StatusLivro status) {
         this.titulo = titulo;
         this.valor = valor;
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
         this.dataPublicacao = dataPublicacao;
         this.autorId = autorId;
+        this.status = status;
     }
 
     public Livro toModel(AutorRepository autorRepository) {
@@ -67,7 +75,7 @@ public class LivroRequest {
                                          )
                                      );
 
-        return new Livro(titulo, valor, numeroPaginas, isbn, dataPublicacao, autor);
+        return new Livro(titulo, valor, numeroPaginas, isbn, dataPublicacao, autor, status);
     }
 
     public String getTitulo() {
@@ -92,6 +100,10 @@ public class LivroRequest {
 
     public Long getAutorId() {
         return autorId;
+    }
+
+    public StatusLivro getStatus() {
+        return status;
     }
 
 }

@@ -43,6 +43,9 @@ public class Livro {
     @Column(nullable = false)
     private LocalDateTime criadoEm = LocalDateTime.now();
 
+    @Column(nullable = false)
+    private StatusLivro status;
+
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
      */
@@ -50,13 +53,14 @@ public class Livro {
     public Livro() {}
 
     public Livro(String titulo, BigDecimal valor, Integer numeroPaginas, String isbn,
-                 LocalDate dataPublicacao, Autor autor) {
+                 LocalDate dataPublicacao, Autor autor, StatusLivro status) {
         this.titulo = titulo;
         this.valor = valor;
         this.numeroPaginas = numeroPaginas;
         this.isbn = isbn;
         this.dataPublicacao = dataPublicacao;
         this.autor = autor;
+        this.status = status;
     }
 
     public Long getId() {
