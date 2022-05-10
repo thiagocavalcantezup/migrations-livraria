@@ -50,13 +50,17 @@ public class LivroRequest {
     @Enumerated(EnumType.STRING)
     private StatusLivro status;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private ClassificacaoLivro classificacao;
+
     public LivroRequest() {}
 
     public LivroRequest(@NotBlank String titulo, @NotNull @PositiveOrZero BigDecimal valor,
                         @NotNull @Positive Integer numeroPaginas,
                         @NotBlank @ISBN(type = Type.ANY) String isbn,
                         @NotNull @PastOrPresent LocalDate dataPublicacao, @NotNull Long autorId,
-                        @NotNull StatusLivro status) {
+                        @NotNull StatusLivro status, @NotNull ClassificacaoLivro classificacao) {
         this.titulo = titulo;
         this.valor = valor;
         this.numeroPaginas = numeroPaginas;
@@ -64,6 +68,7 @@ public class LivroRequest {
         this.dataPublicacao = dataPublicacao;
         this.autorId = autorId;
         this.status = status;
+        this.classificacao = classificacao;
     }
 
     public Livro toModel(AutorRepository autorRepository) {
@@ -75,7 +80,9 @@ public class LivroRequest {
                                          )
                                      );
 
-        return new Livro(titulo, valor, numeroPaginas, isbn, dataPublicacao, autor, status);
+        return new Livro(
+            titulo, valor, numeroPaginas, isbn, dataPublicacao, autor, status, classificacao
+        );
     }
 
     public String getTitulo() {
@@ -104,6 +111,10 @@ public class LivroRequest {
 
     public StatusLivro getStatus() {
         return status;
+    }
+
+    public ClassificacaoLivro getClassificacao() {
+        return classificacao;
     }
 
 }

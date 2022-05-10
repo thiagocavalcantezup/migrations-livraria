@@ -49,6 +49,10 @@ public class Livro {
     @Enumerated(EnumType.STRING)
     private StatusLivro status;
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ClassificacaoLivro classificacao;
+
     /**
      * @deprecated Construtor de uso exclusivo do Hibernate
      */
@@ -56,7 +60,8 @@ public class Livro {
     public Livro() {}
 
     public Livro(String titulo, BigDecimal valor, Integer numeroPaginas, String isbn,
-                 LocalDate dataPublicacao, Autor autor, StatusLivro status) {
+                 LocalDate dataPublicacao, Autor autor, StatusLivro status,
+                 ClassificacaoLivro classificacao) {
         this.titulo = titulo;
         this.valor = valor;
         this.numeroPaginas = numeroPaginas;
@@ -64,6 +69,7 @@ public class Livro {
         this.dataPublicacao = dataPublicacao;
         this.autor = autor;
         this.status = status;
+        this.classificacao = classificacao;
     }
 
     public Long getId() {
