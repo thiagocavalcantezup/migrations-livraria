@@ -1,0 +1,4 @@
+ALTER TABLE
+  livros
+ALTER COLUMN
+  status VARCHAR(15)
